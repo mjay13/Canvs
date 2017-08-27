@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+	<html lang="en-us">
+		<head>
+			<title>Canvs Perks Portal - The Glory</title>
+			<meta charset="utf-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+			<link rel="stylesheet" href="assets/css/style.css"> <!-- STYLE OVERRIDE -->
+			<script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+			<script>
+			  // Initialize Firebase
+			  var config = {
+			    apiKey: "AIzaSyB-gRcYIFekHRkq96_lEBTt105JnLLAF3o",
+			    authDomain: "canvs-perks-portal.firebaseapp.com",
+			    databaseURL: "https://canvs-perks-portal.firebaseio.com",
+			    projectId: "canvs-perks-portal",
+			    storageBucket: "canvs-perks-portal.appspot.com",
+			    messagingSenderId: "130855238893"
+			  };
+			  firebase.initializeApp(config);
+			</script>
+
+			<style>
+				.table > thead{
+					text-align: center;
+				}
+			</style>
+		</head>
+
+		<body>
+			<div class="jumbotron title">
+				<h1>Perks Portal - Administration</h1>
+				<h5>Approve or deny any pending submissions.</h5>
+			</div>
+				<div class="container">
+					<div class="row set">
+						<div class="col-md-12">
+						<p>Below is a list of perks that have yet to be approved. Once you approve a perk, it'll be added to the Perks Portal. If you decline the perk, it'll be removed from the database altogether.</p>
+							<div class="card">
+								<div class="card-header">Moderation Queue</div>
+								<div class="card-body perks-data">
+									
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			<script src="assets/js/moderation.js"></script>
+		</body>
+	</html>
