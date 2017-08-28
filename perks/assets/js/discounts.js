@@ -7,17 +7,16 @@ var database = firebase.database();
 $(document).ready(function(){
 	database.ref("perks").on("child_added", function(snapshot){
 		if (snapshot.val().approved === true){
-			$("<div>").addClass("business-listing")
-				.css("text-align", "center")
-				.css("width", "32%")
-				.css("margin", "0px 8px")
-				.css("border", "2px solid #ababab")
-				.css("border-radius", "5px")
-				.css("padding", "16px")
-			.append("<img style='width: 90px; height: auto;' src='" + snapshot.val().logo + "' alt='" + snapshot.val().corporation + "'>")
-			.append("<h5>" + snapshot.val().corporation + "</h5>")
-			.append("<p>" + snapshot.val().description + "</p>").appendTo(".discounts")
-			.append("<a href='" + snapshot.val().website + "'><button class='btn btn-primary'>" + "Visit Website" + "</button></a>");
+			$(".discounts")
+			.append("<div class='card' style='width: 20rem; margin-bottom: 10px;'>" +
+						"<img class='card-img-top' src='" + snapshot.val().logo + "'>" +
+						"<div class='card-body'>" +
+							"<h4 class='card-title'>" + snapshot.val().corporation + "</h4>" +
+							"<p class='card-text'>" + snapshot.val().description + 
+							"<br><br><a href='" + snapshot.val().website + "'><button class='btn btn-danger'>Visit Website</button></a>" +
+							"</p>" +
+						"</div>" +
+					"</div>");
 		};
 	});
 });
