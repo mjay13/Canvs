@@ -1,3 +1,7 @@
+var categories = ["Housing", "Finances", "Communication",
+				  "Marketing", "Web", "Legal", "Internet",
+				  "Other"];
+				  
 var database = firebase.database();
 
 $(document).ready(function(){
@@ -10,7 +14,7 @@ $(document).ready(function(){
 				.css("border", "2px solid #ababab")
 				.css("border-radius", "5px")
 				.css("padding", "16px")
-			.append("<img style='width: 90px; height: auto;' src='" + snapshot.val().logoURL + "' alt='" + snapshot.val().corporation + "'>")
+			.append("<img style='width: 90px; height: auto;' src='" + snapshot.val().logo + "' alt='" + snapshot.val().corporation + "'>")
 			.append("<h5>" + snapshot.val().corporation + "</h5>")
 			.append("<p>" + snapshot.val().description + "</p>").appendTo(".discounts")
 			.append("<a href='" + snapshot.val().website + "'><button class='btn btn-primary'>" + "Visit Website" + "</button></a>");
