@@ -51,11 +51,18 @@ h1, h2, h3{
 	display: none;
 }
 
-/* .business-listing{
-	-webkit-column-count: 3;
-	-webkit-column-gap:   10px;
-	-moz-column-count:    3;
-	-moz-column-gap:      10px;
-	column-count:         3;
-	column-gap:           10px;
-} */
+.discounts{
+	-webkit-column-count: 2;
+	-webkit-column-gap:   5px;
+	-moz-column-count:    2;
+	-moz-column-gap:      5px;
+	column-count:         2;
+	column-gap:           5px;
+	padding-bottom:		  20px;
+}
+
+.organization{
+	    -webkit-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid-column;
+}
