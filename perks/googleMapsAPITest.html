@@ -38,6 +38,14 @@
     <div class="text-center" id="map">
       here!
     </div>
+    <div class="text-center" id="test">
+      <h2>Canvs Locations</h2>
+        <ul id="locations">
+          <li id="office-downtown" data-latlon="28.540951, -81.381265">Canvs Downtown</li><!--lat and long-->
+          <li id="office-winterpark" data-latlon="28.597509, -81.352940">Canvs Winter Park</li>
+          <li id="office-parramore" data-latlon="28.546614, -81.385805">Canvs Parramore</li>
+        </ul>
+    </div>
   </div>
 </div>
 
@@ -62,13 +70,14 @@ var map, infoWindow;
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: -34.397, lng: 150.644},
-    zoom: 6
+    zoom: 16
   });
   infoWindow = new google.maps.InfoWindow;
 
   // Try HTML5 geolocation.
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
+
       var pos = {
         lat: position.coords.latitude,
         lng: position.coords.longitude
@@ -95,6 +104,43 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   infoWindow.open(map);
 }
 
+//end of Geolocation functions, GoogleMapsAPI test, the above functions found the users current location
+
+//below starts the function to compare the current users location with that of the three canvs locations and tells the user which location they are currently closest to
+
+window.onload = function (){
+  navigator.geolocation.getCurrentPosition(sortResults);
+  console.log(navigator.geolocation);
+ }
+// // //to do
+// // //determine the distance from the user to each of the POIs
+// // //sort the list of POIs based on these distances
+
+function sortResults(position){
+
+  var latlon = new LatLon(position.coords.latitude, position.coords.longitude);
+
+    var locations = document.getElementById('locations');
+    var locationList = locations.querySelectorAll('li');
+    var locationArray = Array.prototype.slice.call(locationList, 0);
+
+    locationArray.sort(function(a,b){
+      var locA  = a.getAttribute('data-latlon').split(',');
+      var locB  = b.getAttribute('data-latlon').split(',');
+
+
+      distA = latlon.distanceTo(new LatLon(Number(locA[0]),Number(locA[1])));
+      distB = latlon.distanceTo(new LatLon(Number(locB[0]),Number(locB[1])));
+      return distA - distB;
+    });
+
+    //Reorder the list
+    locations.innerHTML = "";
+    locationArray.forEach(function(el) {
+      locations.appendChild(el);
+    });
+
+};
 </script>
 </body>
 </html>
