@@ -18,8 +18,8 @@
   <style>
     #map{
       height: 100%;
-      height: 900px;
-      width: 900px;
+      height: 600px;
+      width: 600px;
     }
     html, body{
       height: 100%;
@@ -65,12 +65,21 @@
   };
   firebase.initializeApp(config);
   //make sure that location services are consented
-var map, infoWindow;
+var map, infoWindow, downtown, winterPark, parramore;
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: -34.397, lng: 150.644},
-    zoom: 16
+    zoom: 10
   });
+
+  var downtown = {lat: 28.540951, lng: -81.381265};
+
+  var marker = new google.maps.Marker({
+    position: downtown,
+    map: map
+  });
+
+
   infoWindow = new google.maps.InfoWindow;
   // Try HTML5 geolocation.
   if (navigator.geolocation) {
@@ -83,9 +92,6 @@ function initMap() {
       $("#lat").html(pos.lat);
       $("#long").html(pos.lng);
 
-      compareLocations(pos.lat, pos.lng);
-
-
       infoWindow.setPosition(pos);
       infoWindow.setContent('Location found.');
       infoWindow.open(map);
@@ -97,7 +103,7 @@ function initMap() {
     // Browser doesn't support Geolocation
     handleLocationError(false, infoWindow, map.getCenter());
   }
-  
+
 }
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   infoWindow.setPosition(pos);
@@ -108,9 +114,8 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 }
 //end of Geolocation functions, GoogleMapsAPI test, the above functions found the users current location
 
-function compareLocations(lat, long){
 
-}
+
 </script>
 </body>
 </html>
