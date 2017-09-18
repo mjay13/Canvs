@@ -65,22 +65,44 @@
   };
   firebase.initializeApp(config);
   //make sure that location services are consented
-var map, infoWindow, downtown, winterPark, parramore;
+var map, infoWindow;
+
 function initMap() {
+
   map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: -34.397, lng: 150.644},
     zoom: 10
   });
+infoWindow = new google.maps.InfoWindow;
+//Adds a marker to the map
 
-  var downtown = {lat: 28.540951, lng: -81.381265};
+  addMarker({coords:{lat: 28.540951, lng: -81.381265},
+    content: "<p>Downtown Location</p>"
+});
+  addMarker({coords:{lat: 28.597509, lng: -81.352940},
+    content: "<p>Winter Park Location</p>"
+});
+  addMarker({coords:{lat: 28.546614, lng: -81.385805},
+    content: "<p>Parramore Location</p>"
+});
 
+function addMarker(props){
   var marker = new google.maps.Marker({
-    position: downtown,
+    position: props.coords,
     map: map
   });
 
+  if(props.content){
+    var infoWindow = new google.maps.InfoWindow({
+      content: props.content
+    })
+    marker.addListener("click", function(){
+      infoWindow.open(map, marker);
+    });
+  }
+}
 
-  infoWindow = new google.maps.InfoWindow;
+
   // Try HTML5 geolocation.
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
@@ -93,7 +115,7 @@ function initMap() {
       $("#long").html(pos.lng);
 
       infoWindow.setPosition(pos);
-      infoWindow.setContent('Location found.');
+     infoWindow.setContent('Your location');
       infoWindow.open(map);
       map.setCenter(pos);
     }, function() {
