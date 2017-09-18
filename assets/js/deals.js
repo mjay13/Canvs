@@ -32,7 +32,6 @@
 
 		database.ref("offers").on("child_added", function(list){
 			if (list.val().status === "active"){
-				console.log(list.val().company);
 				companyCount++;
 				$("<div>").addClass("company card").attr("company", list.val().company).attr("id", companyCount)
 				.attr("industry", list.val().industry).appendTo(".card-columns");
@@ -49,6 +48,17 @@
 	$(document).on("click", "#interest", function(){
 		database.ref("offers").child($(this).attr("company")).on("value", function(information){
 			$(".modal-title").text(information.val().company);
-			$("#info").modal('show');
+			$(".contact").html("<img src='" + information.val().logo + "'><br>" +
+							   "<h4>" + information.val().company + "</h4>" +
+							   "<p>" + information.val().industry + "</p><br>" +
+							   "<h5>" + information.val().personal_contact.first_name + " " + information.val().personal_contact.last_name + "</h5>" +
+							   "<a href='mailto:" + information.val().personal_contact.email + "'>Get in Touch</a>");
+			$(".offer").html("<h4>Company Description</h4>" +
+				 			 "<p>" + information.val().description + "</p>" +
+				 			 "<h4>Company Offer</h4>" +
+				 			 "<p>" + information.val().offer.details + "<br><br></p>" +
+				 			 "<p>DISCOUNT CODE:   " + "<span class='code'>" + information.val().offer.code + "</span></p>");
+			$(".modal-footer").prepend("<a href='" + information.val().website + "' target='_blank'><button class='btn btn-primary'>Visit Website</button></a>")
+			$(".modal").modal("show");
 		});
 	});

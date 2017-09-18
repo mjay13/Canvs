@@ -12,7 +12,7 @@ var database = firebase.database();
 						"<a href='" + moderate.val().website + "'>Visit Website</a><br><br>" +
 						"<h5>" + moderate.val().personal_contact.first_name + " " + moderate.val().personal_contact.last_name + "</h5>" +
 						"<p>P: " + moderate.val().personal_contact.phone + "<br>E: " + moderate.val().personal_contact.email + "</p>" +
-						"<button class='btn btn-primary' id='approve'>Approve</button> <button class='btn btn-danger' id='decline'>Decline</button>" +
+						"<button class='btn btn-primary' id='approve' company='" + moderate.val().company + "'>Approve</button> <button class='btn btn-danger' id='decline' company='" + moderate.val().company + "'>Decline</button>" +
 					"</div>")
 			.append("<div class='col-md-8 offer-information'>" +
 						"<h5>" + "Company Description" + "</h5>" +
@@ -23,21 +23,16 @@ var database = firebase.database();
 					"</div>")
 			.attr("company", moderate.val().company);
 		};
+	});
 
-		// Interactive buttons that will show on the Moderation Queue section only.
-		$("#approve").on("click", function(){
-			// Clicking approve will update the key "status" in the Firebase database system
-			// with the value "active".
-			database.ref("offers").child(moderate.val().company).update({
-				status: "active"
-			});
-			location.reload(); // Reloads the page for updates.
+	$(document).on("click", "#approve", function(){
+		database.ref("offers").child($(this).attr("company")).update({
+			status: "active"
 		});
+		location.reload();
+	});
 
-		$("#decline").on("click", function(){
-			// Since the submission has never been approved, declining the submission
-			// will delete the entry entirely and allow for the submitter to resubmit their information.
-			database.ref("offers").child(moderate.val().company).remove()
-			location.reload(); // Reloads the page for updates.
-		});
+	$(document).on("click", "#decline", function(){
+		database.ref("offers").child($(this).attr("company")).remove();
+		location.reload();
 	});
