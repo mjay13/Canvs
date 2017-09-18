@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+	<html lang="en-us">
+		<head>
+			<title>Canvs Coupons - Deals &amp; Discounts</title>
+			<meta charset="utf-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+			<script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+			<script>
+			  // Initialize Firebase
+			  var config = {
+			    apiKey: "AIzaSyBqzbxTnrFCIbxX0BtX5ElG7t1mptEXzWk",
+			    authDomain: "perks-portal.firebaseapp.com",
+			    databaseURL: "https://perks-portal.firebaseio.com",
+			    projectId: "perks-portal",
+			    storageBucket: "perks-portal.appspot.com",
+			    messagingSenderId: "996457797052"
+			  };
+			  firebase.initializeApp(config);
+			</script>
+			<link rel="stylesheet" href="assets/css/style.css"> <!-- STYLE OVERRIDE -->
+			<link rel="Stylesheet" href="assets/css/deals.css"> <!-- CARD OVERRIDE-->
+			<script src="assets/js/deals.js"></script>
+		</head>
+
+		<body>
+			<div class="authenticated">
+				<div class="jumbotron">
+					<h1>Canvs Coupons</h1>
+					<p>Canvs Coupons is a dedicated portal helping to provide entrepreneurs with helpful discounts on select products and services.</p>
+				</div>
+				
+				<div class="collective row">
+					<div class="col-md-9 primary">
+						<div class="news">
+							<span><h4>Latest News <img src="assets/img/loading.gif" alt="Loading GIF" id="loading"></h4></span>
+						</div>
+						<div class="card-columns"></div>
+					</div>
+
+					<div class="col-md-3 sidebar">
+						<div class="list-group category-filtration">
+							<li class="list-group-item list-group-header">Filter by Category</li>
+						</div>
+					</div>
+				</div>
+			</div>
+		</body>
+	</html>
