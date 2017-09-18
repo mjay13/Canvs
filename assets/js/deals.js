@@ -58,7 +58,8 @@
 				 			 "<h4>Company Offer</h4>" +
 				 			 "<p>" + information.val().offer.details + "<br><br></p>" +
 				 			 "<p>DISCOUNT CODE:   " + "<span class='code'>" + information.val().offer.code + "</span></p>");
-			$(".modal-footer").prepend("<a href='" + information.val().website + "' target='_blank'><button class='btn btn-primary'>Visit Website</button></a>")
+			$(".modal-footer").html("<a href='" + information.val().website + "' target='_blank'><button class='btn btn-primary'>Visit Website</button></a>" +
+									"<button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>")
 			$(".modal").modal("show");
 		});
 	});
