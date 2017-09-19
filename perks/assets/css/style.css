@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
+
 body{
 	background-color: #F0F0F0;
 }
@@ -7,6 +8,7 @@ body{
 body p{
 	font-size: 14pt;
 	line-height: 1.7em;
+	margin-bottom: 20px;
 }
 
 textarea{
@@ -66,3 +68,54 @@ h1, h2, h3{
     page-break-inside: avoid;
     break-inside: avoid-column;
 }
+
+/* Navbar Experiments */
+
+#menu-toggle {
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	right: 0;
+}
+
+.toggle {
+	font-size: 1em;
+	margin: 5px 5px 0px 0px;
+}
+
+/* Submit Button */
+
+.list-group {
+	margin: 20px;
+}
+
+/* START OF MEDIA QUERIES */
+
+/* Smaller Desktop */
+
+@media only screen and (max-width: 1199px) {
+
+.card-body {
+	margin-bottom: 30px;
+}
+
+.thanks {
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+}
+/* end of smaller desktop */
+
+
+/* Tablet */
+@media only screen and (max-width: 991px) {
+
+}
+/*end of Tablet*/
+
+/* Phone */
+@media only screen and (max-width: 767px) {
+
+}
+/* end of phone */

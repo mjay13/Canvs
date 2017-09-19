@@ -1,69 +1,98 @@
 <!DOCTYPE HTML>
-	<html lang="en-us">
-		<head>
-			<title>Canvs Perks Portal - The Glory</title>
-			<meta charset="utf-8">
-			<meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en-us">
 
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-			<link rel="stylesheet" href="assets/css/style.css"> <!-- STYLE OVERRIDE -->
-			<script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
-			<script>
-			  // Initialize Firebase
-			  var config = {
-			    apiKey: "AIzaSyB-gRcYIFekHRkq96_lEBTt105JnLLAF3o",
-			    authDomain: "canvs-perks-portal.firebaseapp.com",
-			    databaseURL: "https://canvs-perks-portal.firebaseio.com",
-			    projectId: "canvs-perks-portal",
-			    storageBucket: "canvs-perks-portal.appspot.com",
-			    messagingSenderId: "130855238893"
-			  };
-			  firebase.initializeApp(config);
-			</script>
+<head>
+    <title>Canvs Perks Portal - The Glory</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- STYLE OVERRIDE -->
+    <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+    <script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyB-gRcYIFekHRkq96_lEBTt105JnLLAF3o",
+        authDomain: "canvs-perks-portal.firebaseapp.com",
+        databaseURL: "https://canvs-perks-portal.firebaseio.com",
+        projectId: "canvs-perks-portal",
+        storageBucket: "canvs-perks-portal.appspot.com",
+        messagingSenderId: "130855238893"
+    };
+    firebase.initializeApp(config);
+    </script>
+    <style>
+    .company {
+        width: 100%;
+        border-radius: 5px;
+    }
 
-			<style>
-				.company{
-					width: 100%;
-					border-radius: 5px;
-				}
+    .logo {
+        width: 120px;
+        height: auto;
+    }
 
-				.logo{
-					width: 120px;
-					height: auto;
-				}
+    .card-img-top {
+        background-color: #eeeeee;
+    }
+    </style>
+</head>
 
-				.card-img-top{
-					background-color: #eeeeee;
-				}
+<body>
+    <div class="jumbotron title">
+        <!-- Navbar Experimentation -->
+        <a id="menu-toggle" href="#" class="btn toggle">
+        <i class="fa fa-bars">
+            hamburger here
+        </i>
+    </a>
+        <!-- End of Navbar Experimentation -->
+        <h1>Perks &amp; Benefits</h1>
+        <h5>Your exclusive access to local discounts and perks around town.</h5>
+    </div>
+    <div class="container">
+        <div class="row set">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">Premium Benefits</div>
+                    <div class="card-body discounts">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 thanks">
+                <h2>Reep the Canvs perks.</h2>
+                <p>Canvs is working hard to provide you with top-notch perks. We know how challenging it can be to allocate a budget for certain necessities. That's why we're making it a goal to make those necessities more affordable for our members.
+                    <br> Want to offer a discount to your fellow Canvs members?</p>
+                <button id="submit-btn" type="button" href="#" data-toggle="modal" data-target="#basicModal" class="btn btn-primary">Absolutely
+                </button>
+                <!-- href="submit.html" button cut out as well-->
+            </div>
+        </div>
+    </div>
+    <div id="basicModal" class="modal fade" tabindex="-1" role="dialog" aria-labeled-by="modal-label" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 id="modal-label" class="modal-title">Modal title</h4>
+                </div>
+                <div class="modal-body">
+                    <p>One fine body&hellip;</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha256-gL1ibrbVcRIHKlCO5OXOPC/lZz/gpdApgQAzskqqXp8=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+    <script src="assets/js/discounts.js"></script>
+</body>
 
-			</style>
-		</head>
-
-		<body>
-			<div class="jumbotron title">
-				<h1>Perks &amp; Benefits</h1>
-				<h5>Your exclusive access to local discounts and perks around town.</h5>
-			</div>
-				<div class="container">
-					<div class="row set">
-						<div class="col-md-8">
-							<div class="card">
-								<div class="card-header">Premium Benefits</div>
-								<div class="card-body discounts">
-								</div>
-							</div>
-						</div>
-
-						<div class="col-md-4 thanks">
-							<h2>Reep the Canvs perks.</h2>
-							<p>Canvs is working hard to provide you with top-notch perks. We know how challenging it can be to allocate a budget for certain necessities. That's why we're making it a goal to make those necessities more affordable for our members.
-						<br>
-							Want to offer a discount to your fellow Canvs members?</p>
-							<a href="submit.html"><button class="btn btn-primary">Absolutely</button></a>
-						</div>
-					</div>
-				</div>
-			<script src="assets/js/discounts.js"></script>
-		</body>
-	</html>
+</html>
