@@ -83,6 +83,12 @@ h1, h2, h3{
 	margin: 5px 5px 0px 0px;
 }
 
+/* Submit Button */
+
+.list-group {
+	margin: 20px;
+}
+
 /* START OF MEDIA QUERIES */
 
 /* Smaller Desktop */

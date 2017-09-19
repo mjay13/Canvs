@@ -6,9 +6,13 @@ var database = firebase.database();
 
 $(document).ready(function(){
 	
-	$("#basicModal").on('shown.bs.modal', function() {
+	// $("#basicModal").on('shown.bs.modal', function() {
 		
-		console.log("modal cliked");
+	// 	console.log("modal cliked");
+	// });
+
+	$("#basicModal").on("click", function(){
+		$("#basicModal").modal("show");
 	});
 	
 	database.ref("perks").on("child_added", function(snapshot){
