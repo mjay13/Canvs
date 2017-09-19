@@ -5,6 +5,12 @@ var categories = ["Housing", "Finances", "Communication",
 var database = firebase.database();
 
 $(document).ready(function(){
+	
+	$("#basicModal").on('shown.bs.modal', function() {
+		
+		console.log("modal cliked");
+	});
+	
 	database.ref("perks").on("child_added", function(snapshot){
 		if (snapshot.val().approved === true){
 			$(".discounts")
@@ -19,4 +25,6 @@ $(document).ready(function(){
 					"</div>");
 		};
 	});
+
+	
 });
