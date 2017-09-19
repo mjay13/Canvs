@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+	<html lang="en-us">
+		<head>
+			<title>All Seeing Eye - Active Offers</title>
+			<meta charset="utf-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+ 			<script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+			<script>
+			  // Initialize Firebase
+			  var config = {
+			    apiKey: "AIzaSyBqzbxTnrFCIbxX0BtX5ElG7t1mptEXzWk",
+			    authDomain: "perks-portal.firebaseapp.com",
+			    databaseURL: "https://perks-portal.firebaseio.com",
+			    projectId: "perks-portal",
+			    storageBucket: "perks-portal.appspot.com",
+			    messagingSenderId: "996457797052"
+			  };
+			  firebase.initializeApp(config);
+			</script>
+			<link rel="stylesheet" href="../assets/css/style.css"> <!-- STYLE OVERRIDE -->
+		</head>
+
+		<body>
+			<div class="authenticated">
+				<div class="jumbotron">
+					<h1>All Seeing Eye - Active Offers</h1>
+					<p>Approve or deny pending deal submissions and alter the visibility of existing deals.</p>
+				</div>
+				
+				<div class="collective row">
+					<div class="col-md-9 primary">
+						<div class="card">
+							<div class="card-header">Active Deals &amp; Offers</div>
+							<div class="active" id="active-deals"></div>
+						</div>
+					</div>
+
+					<div class="col-md-3 sidebar">
+						<div class="list-group">
+							<li class="list-group-item list-group-header">Filter by Status</li>
+							<a href="index.html" class="list-group-item list-group-item-action" id="pending">Pending Offers</a>
+							<a href="active.html" class="list-group-item list-group-item-action" id="active">Active Offers</a>
+							<a href="inactive.html" class="list-group-item list-group-item-action" id="inactive">Inactive Offers</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<script src="../assets/js/moderate/active.js"></script>
+		</body>
+	</html>
