@@ -60,6 +60,11 @@
 				 			 "<p>DISCOUNT CODE:   " + "<span class='code'>" + information.val().offer.code + "</span></p>");
 			$(".modal-footer").html("<a href='" + information.val().website + "' target='_blank'><button class='btn btn-primary'>Visit Website</button></a>" +
 									"<button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>")
-			$(".modal").modal("show");
+			$("#companyModal").modal("show");
 		});
+		
+	});
+	
+	$(document).on("click", ".submit-btn", function(){
+		$("#submitModal").modal("show");	
 	});

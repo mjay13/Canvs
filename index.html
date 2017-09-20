@@ -1,78 +1,155 @@
 <!DOCTYPE HTML>
-	<html lang="en-us">
-		<head>
-			<title>Canvs Coupons - Deals &amp; Discounts</title>
-			<meta charset="utf-8">
-			<meta name="viewport" content="width=device-width, initial-scale=1">
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
-			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-			<script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
-			<script>
-			  // Initialize Firebase
-			  var config = {
-			    apiKey: "AIzaSyBqzbxTnrFCIbxX0BtX5ElG7t1mptEXzWk",
-			    authDomain: "perks-portal.firebaseapp.com",
-			    databaseURL: "https://perks-portal.firebaseio.com",
-			    projectId: "perks-portal",
-			    storageBucket: "perks-portal.appspot.com",
-			    messagingSenderId: "996457797052"
-			  };
-			  firebase.initializeApp(config);
-			</script>
-			<link rel="stylesheet" href="assets/css/style.css"> <!-- STYLE OVERRIDE -->
-			<!-- <link rel="Stylesheet" href="assets/css/deals.css"> CARD OVERRIDE-->
-			<script src="assets/js/deals.js"></script>
-		</head>
+<html lang="en-us">
 
-		<body>
+<head>
+    <title>Canvs Coupons - Deals &amp; Discounts</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+    <script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyBqzbxTnrFCIbxX0BtX5ElG7t1mptEXzWk",
+        authDomain: "perks-portal.firebaseapp.com",
+        databaseURL: "https://perks-portal.firebaseio.com",
+        projectId: "perks-portal",
+        storageBucket: "perks-portal.appspot.com",
+        messagingSenderId: "996457797052"
+    };
+    firebase.initializeApp(config);
+    </script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- STYLE OVERRIDE -->
+    <!-- <link rel="Stylesheet" href="assets/css/deals.css"> CARD OVERRIDE-->
+    <script src="assets/js/deals.js"></script>
+    <!-- <link rel="stylesheet" type="text/css" href="submit.html"> -->
+    <script src="assets/js/map.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgx1L_AakjDCSyn_ZknGpvtPLTNleJgis&callback=initMap"
+  type="text/javascript"></script>
+</head>
 
-			<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-			  <div class="modal-dialog modal-lg">
-			    <div class="modal-content">
-				  	<div class="modal-header">
-				        <h5 class="modal-title">Modal title</h5>
-				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-				          <span aria-hidden="true">&times;</span>
-				        </button>
-				    </div>
-				    <div class="modal-body">
-				    	<div class="row">
-				    		<div class="col-md-4 contact">
-				    		</div>
+<body>
+    <div class="modal fade bd-example-modal-lg" id="companyModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Business Name</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-4 contact">
+                        </div>
+                        <div class="col-md-8 offer">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Submit Modal -->
+    <div id="submitModal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <form class="form">
+                    <div class="form-group">
+                        <h3>Direct Contact</h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="contact-first">First Name*</label>
+                                <input type="text" class="form-control" id="contact-first" placeholder="John" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="contact-last">Last Name*</label>
+                                <input type="text" class="form-control" id="contact-last" placeholder="Smith" required>
+                            </div>
+                        </div>
+                        <label for="contact-phone">Phone*</label>
+                        <input type="text" class="form-control" id="contact-phone" placeholder="321-345-6789" required>
+                        <label for="contact-email">Email*</label>
+                        <input type="email" class="form-control" id="contact-email" placeholder="john.smith@company.net" required>
+                        <small id="note" class="form-text text-muted" style="margin-top: -15px;">Canvs will never share your personal information.</small>
+                        <br>
+                        <h3>Deal Information</h3>
+                        <label for="entity-name">Entity Name*</label>
+                        <input type="text" class="form-control" id="entity-name" placeholder="Top Notch Soap" required>
+                        <label for="entity-logo">Entity Logo*</label>
+                        <input type="file" class="form-control" id="entity-logo" required>
+                        <small id="note" class="form-text text-muted" style="margin-top: -15px; margin-bottom: 20px;">Your logo file must be either a JPEG, PNG, or GIF file, be proportionate in size and must not exceed 300 x 300 pixels.</small>
+                        <label for="entity-category">Industry*</label>
+                        <select class="form-control" id="entity-category" style="margin-bottom: 20px;">
+                            <option value="Aerospace">Aerospace</option>
+                            <option value="Agriculture">Agriculture</option>
+                            <option value="Chemical">Chemical</option>
+                            <option value="Computer + Programming/Design">Computer + Programming/Design</option>
+                            <option value="Construction">Construction</option>
+                            <option value="Defense">Defense</option>
+                            <option value="Education">Education</option>
+                            <option value="Entertainment">Entertainment</option>
+                            <option value="Energy + Electrical">Energy + Electrical</option>
+                            <option value="Finance + Insurance">Finance + Insurance</option>
+                            <option value="Food + Dining">Food + Dining</option>
+                            <option value="Healthcare">Healthcare</option>
+                            <option value="Information + Data">Information + Data</option>
+                            <option value="Legal">Legal</option>
+                            <option value="Manufacturing">Manufacturing</option>
+                            <option value="Media + Publication">Media + Publication</option>
+                            <option value="Telecommunication">Telecommunication</option>
+                            <option value="Transportation">Transportation</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <label for="entity-website">Website*</label>
+                        <div class="input-group" style="margin-bottom: 20px;">
+                            <span class="input-group-addon" id="protocol">https://</span>
+                            <input type="text" class="form-control" id="entity-website" aria-describedby="protocol" placeholder="www.yourwebsite.com">
+                        </div>
+                        <small id="note" class="form-text text-muted" style="margin-top: -15px; margin-bottom: 20px;">Your website requires an SSL certificate for approval.</small>
+                        <label for="entity-description">Description*</label>
+                        <textarea class="form-control" id="entity-description" maxlength="140" placeholder="You may not exceed 140 characters." required></textarea>
+                        <label for="entity-offer-description">Offer Details*</label>
+                        <textarea class="form-control" id="entity-offer-description" required></textarea>
+                        <label for="entity-offer-code">Offer Code</label>
+                        <input type="text" class="form-control" id="entity-offer-code" placeholder="Optional">
+                        <button class="btn btn-primary btn-lg" id="contribute">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+   
+    <div class="authenticated">
+        <div class="jumbotron">
+            <h1>Canvs Coupons</h1>
+            <p>Canvs Coupons is a dedicated portal helping to provide entrepreneurs with helpful discounts on select products and services.</p>
+        </div>
+        <div class="collective row">
+            <div class="col-md-9 primary">
+                <div class="news">
+                    <span><h4>Latest News <img src="assets/img/loading.gif" alt="Loading GIF" id="loading"></h4></span>
+                </div>
+                <div class="card-columns"></div>
+            </div>
+            <div class="col-md-3 sidebar">
+                <div class="btn-div">
+                    <button style="align-self: center; width: 100%; margin-bottom: 10px;" type="button" href="#" class="btn btn-primary btn-lg submit-btn">Submit Deal</span>
+                </div>
+                <div class="list-group category-filtration">
+                    <li class="list-group-item list-group-header">Filter by Category</li>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center" id="map"></div>
+    <script src="assets/js/submit.js"></script>
+</body>
 
-				    		<div class="col-md-8 offer">
-				    		</div>
-				    	</div>
-				    </div>
-				    <div class="modal-footer">
-				        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-					</div>
-			    </div>
-			  </div>
-			</div>
-
-			<div class="authenticated">
-				<div class="jumbotron">
-					<h1>Canvs Coupons</h1>
-					<p>Canvs Coupons is a dedicated portal helping to provide entrepreneurs with helpful discounts on select products and services.</p>
-				</div>
-				
-				<div class="collective row">
-					<div class="col-md-9 primary">
-						<div class="news">
-							<span><h4>Latest News <img src="assets/img/loading.gif" alt="Loading GIF" id="loading"></h4></span>
-						</div>
-						<div class="card-columns"></div>
-					</div>
-
-					<div class="col-md-3 sidebar">
-						<div class="list-group category-filtration">
-							<li class="list-group-item list-group-header">Filter by Category</li>
-						</div>
-					</div>
-				</div>
-			</div>
-		</body>
-	</html>
+</html>
