@@ -53,8 +53,14 @@ function addMarker(props){
         lng: position.coords.longitude
       };
 
+      var marker = new google.maps.Marker({
+        position: pos,
+        map: map,
+        icon: "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png"
+      });
+
       infoWindow.setPosition(pos);
-      infoWindow.setContent('Your location');
+      infoWindow.setContent("Your location");
       infoWindow.open(map);
       map.setCenter(pos);
     }, function() {
