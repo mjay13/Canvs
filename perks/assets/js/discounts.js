@@ -27,8 +27,11 @@ $(document).ready(function(){
 							"</p>" +
 						"</div>" +
 					"</div>");
-		};
+		}
 	});
+
+// animate for submit button
+
 
 	
 });
