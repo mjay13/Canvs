@@ -24,20 +24,21 @@
     </script>
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- STYLE OVERRIDE -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
     <!-- <link rel="Stylesheet" href="assets/css/deals.css"> CARD OVERRIDE-->
     <script src="assets/js/deals.js"></script>
     <!-- <link rel="stylesheet" type="text/css" href="submit.html"> -->
     <script src="assets/js/map.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgx1L_AakjDCSyn_ZknGpvtPLTNleJgis&callback=initMap"
-  type="text/javascript"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgx1L_AakjDCSyn_ZknGpvtPLTNleJgis&callback=initMap" type="text/javascript"></script>
 </head>
 
 <body>
-    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal fade bd-example-modal-lg" id="companyModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Modal title</h5>
+                    <h5 class="modal-title">Business Name</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -125,7 +126,6 @@
             </div>
         </div>
     </div>
-   
     <div class="authenticated">
         <div class="jumbotron">
             <h1>Canvs Coupons</h1>
@@ -140,13 +140,16 @@
             </div>
             <div class="col-md-3 sidebar">
                 <div class="btn-div">
-                    <button  style="align-self: center; width: 100%; margin-bottom: 10px;" type="button" href="#" data-toggle="modal" data-target="#submitModal" class="btn btn-primary btn-lg submit-btn">Submit a Coupon!</span>
+                    <button style="align-self: center; width: 100%; margin-bottom: 10px;" type="button" href="#" class="btn btn-primary btn-lg submit-btn">Submit Deal</button>
                 </div>
                 <div class="list-group category-filtration">
                     <li class="list-group-item list-group-header">Filter by Category</li>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="map-header jumbotron">
+        <h1>Locations</h1>
     </div>
     <div class="text-center" id="map"></div>
     <script src="assets/js/submit.js"></script>
