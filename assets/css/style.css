@@ -146,6 +146,7 @@ textarea{
       height: 400px;
       width: 100%;
       margin: 0px auto;
+      align-self: center;
     }
 .map-header {
 	margin-top: 40px;
