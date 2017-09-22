@@ -24,6 +24,11 @@ textarea{
 	margin-bottom: 20px;
 }
 
+#loading{
+	width: 40px;
+	height: auto;
+}
+
 .btn{
 	text-transform: uppercase;
 	font-weight: 340;
@@ -143,7 +148,7 @@ textarea{
 }
 #map{
       height: 400px;
-      width: 100%px;
+      width: 100%;
       margin: 0px auto;
     }
 .map-header {

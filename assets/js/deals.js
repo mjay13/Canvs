@@ -25,7 +25,7 @@
 		});
 
 		for (var i = 0; i < categories.length; i++){ // Responsible for generating the category filtration list.
-			$("<a>").attr("id", categories[i]).attr("href", "#")
+			$("<a>").attr("category", categories[i]).attr("id", "category").attr("href", "#")
 			.addClass("list-group-item list-group-item-action")
 			.text(categories[i]).appendTo(".category-filtration");
 		};
