@@ -33,7 +33,7 @@
 		database.ref("offers").on("child_added", function(list){
 			if (list.val().status === "active"){
 				companyCount++;
-				$("<div>").addClass("company card").attr("company", list.val().company).attr("id", companyCount)
+				$("<div>").addClass("company card animated fadeIn").attr("company", list.val().company).attr("id", companyCount)
 				.attr("industry", list.val().industry).appendTo(".card-columns");
 				$("<div>").addClass("card-body").appendTo("#" + companyCount)
 				.html("<img src='" + list.val().logo + "'>" +
