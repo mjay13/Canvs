@@ -56,16 +56,18 @@ var storage = firebase.storage(); // Used to open a connection with the Firebase
 
 		if (entityName.includes(".") || entityName.includes("#") || entityName.includes("$") ||
 			entityName.includes("[") || entityName.includes("]")){
+			$.notify("Your company name cannot contain the characters . # $ [ or ]. Sorry about that.");
 			// Input check required because Firebase does not allow these characters to be in the name of a database child.
 			// This will disallow the ability to use the characters . # $ [ or ] in the entity name field.
-			console.log("Nope");
 		} else {
 			database.ref("offers").once("value", function(alreadyExists){
-				if (alreadyExists.hasChild(entityName)){ // Checks to see if a child named the value of entityName already exists.
+				if (alreadyExists.hasChild(entityName)){
+					$.notify("Hmm, looks like that company already exists in the database."); 
+					// Checks to see if a child named the value of entityName already exists.
 					// Input check required to mitigate the possiblity of overwriting already existing data.
 					// If the child for a given entity already exists, new data will not be written.
-					console.log("This organization has already been submitted, sorry.");
 				} else {
+
 					for (var i = 0; i < 51; i++){ // Responsible for generating the random file name for the logo image.
 						filename += possibilities.charAt(Math.floor(Math.random() * possibilities.length));
 					};
